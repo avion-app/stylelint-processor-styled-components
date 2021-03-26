@@ -84,6 +84,12 @@ Component.extend``;
 
 - `parserPlugins` is used to make the processor's parser be able to parse new syntaxes. All available babel parser plugins and related options can be found in [Babel's website](https://babeljs.io/docs/en/babel-parser#plugins).
 
+- `parserOptions` available babel parser options can be found in [Babel's website](https://babeljs.io/docs/en/babel-parser#options). Default parser options are: 
+
+```
+{ sourceType: 'module' }
+```
+
 ## [Documentation](https://www.styled-components.com/docs/tooling#stylelint)
 
 **Further documentation for this processor lives on [the styled-components website](https://www.styled-components.com/docs/tooling#stylelint)!**
@@ -99,7 +105,7 @@ Component.extend``;
 
 ### Why does it throw `Unexpected token`? Even thought the file didn't import `styled-components`.
 
-You can custom babel plugins by `option.parserPlugins` now. An API example is [our test](https://github.com/styled-components/stylelint-processor-styled-components/blob/master/test/options.test.js#L211). But if someone can implement [#231](https://github.com/styled-components/stylelint-processor-styled-components/issues/231), that will be much better.
+You can add custom babel plugins and options by using `option.parserPlugins` and `option.parserOptions`. An API example is [our test](https://github.com/styled-components/stylelint-processor-styled-components/blob/master/test/options.test.js#L211). But if someone can implement [#231](https://github.com/styled-components/stylelint-processor-styled-components/issues/231), that will be much better.
 
 If your project includes `yarn.lock` or `package-lock.json`, an alternative cause can be that babel related dependencies, i.e. `@babel/parser` and `@babel/traverse`, are outdated, especially when linting files with new TypeScript syntaxes. You can upgrade them by removing their entries in the lockfile and reinstall dependencies.
 

@@ -126,6 +126,6 @@ const processStyledComponentsFile = (ast, absolutePath, options) => {
 module.exports = (input, absolutePath, options) => {
   const typedParser =
     absolutePath.endsWith('.ts') || absolutePath.endsWith('.tsx') ? 'typescript' : 'flow'
-  const ast = estreeParse(typedParser, options.parserPlugins)(input)
+  const ast = estreeParse(typedParser, options.parserPlugins, options.parserOptions)(input)
   return processStyledComponentsFile(ast, absolutePath, options)
 }
