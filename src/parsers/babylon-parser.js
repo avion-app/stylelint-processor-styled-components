@@ -1,10 +1,10 @@
 const babylon = require('@babel/parser')
 
-module.exports = (type, plugins, options = {}) => input =>
-  // Remove nested plugins, as we already provide a way to explicitly pass them
+module.exports = (type, plugins, options = {}) => input => {
   if (options.plugins) delete options.plugins
+  // Remove nested plugins, as we already provide a way to explicitly pass them
 
-  babylon.parse(input, {
+  return babylon.parse(input, {
     sourceType: 'module',
     ...options
     plugins: [type].concat(
@@ -18,3 +18,4 @@ module.exports = (type, plugins, options = {}) => input =>
       ]
     )
   })
+}
